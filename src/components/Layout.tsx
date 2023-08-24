@@ -24,12 +24,12 @@ export function Layout({ children = null }: LayoutProps) {
 
 	return (
 		<Fragment>
-			<motion.header
+			{/* <motion.header
 				layoutScroll
 				className={cn("relative z-40 contents px-6 pt-4 pb-8 ")}
 			>
 				<Header />
-			</motion.header>
+			</motion.header> */}
 			<Prose
 				as="main"
 				className={cn(

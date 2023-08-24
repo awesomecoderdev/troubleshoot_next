@@ -356,7 +356,7 @@ export function Navigation({
 					<TopLevelNavItem href="/contact">Contact</TopLevelNavItem>
 				</Fragment> */}
 
-				{navigations.map((group, groupIndex) => (
+				{/* {navigations.map((group, groupIndex) => (
 					<NavigationGroup
 						key={group.title}
 						group={group}
@@ -367,7 +367,7 @@ export function Navigation({
 							// !sensitive && "md:block hidden"
 						)}
 					/>
-				))}
+				))} */}
 
 				<li
 					className={cn(

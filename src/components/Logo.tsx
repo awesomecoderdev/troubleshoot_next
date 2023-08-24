@@ -11,9 +11,13 @@ export function Logo(props: any) {
 			<Image
 				src={logo}
 				alt={`${process.env.APP_NAME}`}
-				className="dark:invert"
-				width={60}
-				height={14}
+				className="relative"
+				// @ts-ignore
+				width="auto"
+				// @ts-ignore
+				height="auto"
+				// width={60}
+				// height={14}
 				priority
 			/>
 		</Fragment>

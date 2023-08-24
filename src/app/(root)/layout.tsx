@@ -20,11 +20,11 @@ const SetupPage: React.FC<PageProps> = ({ children = null, modal }) => {
 		// }
 	}, [isOpen, onOpen]);
 
-	// useEffect(() => {
-	// 	if (!isOpen) {
-	// 		onOpen();
-	// 	}
-	// }, []);
+	useEffect(() => {
+		if (!isOpen) {
+			onOpen();
+		}
+	}, []);
 
 	return (
 		<Fragment>

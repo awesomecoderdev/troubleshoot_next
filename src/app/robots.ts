@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
 			allow: "/",
 			disallow: "/private/",
 		},
-		sitemap: "https://awesomecoder.dev/sitemap.xml",
+		// sitemap: "https://awesomecoder.dev/sitemap.xml",
 	};
 }

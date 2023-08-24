@@ -39,7 +39,7 @@ export function constructMetadata({
 		},
 		metadataBase: new URL("https://www.awesomecoder.dev"),
 		themeColor: "#FFF",
-		manifest: "/manifest.json",
+		// manifest: "/manifest.json",
 		icons: {
 			apple: ["/apple-touch-icon.png"],
 
