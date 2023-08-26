@@ -13,7 +13,7 @@ import { Footer } from "@/components/Footer";
 import useAuth from "@/hooks/use-auth";
 // import TagManager from "react-gtm-module";
 
-export function Layout({ children = null }: LayoutProps) {
+export function Layout({ children = null, auth = null }: LayoutProps) {
 	const pathname = usePathname();
 	const { user } = useAuth();
 
@@ -30,7 +30,7 @@ export function Layout({ children = null }: LayoutProps) {
 				layoutScroll
 				className={cn("relative z-40 contents px-6 pt-4 pb-8 ")}
 			>
-				<Header />
+				<Header auth={auth} />
 			</motion.header>
 			<Prose
 				as="main"
@@ -39,7 +39,7 @@ export function Layout({ children = null }: LayoutProps) {
 				)}
 			>
 				{pathname == "/" && <HeroPattern />}
-				<p>{JSON.stringify(user, null, 4)}</p>
+				<p>{JSON.stringify(auth, null, 4)}</p>
 				<AnimatePresence initial={false}>{children}</AnimatePresence>
 			</Prose>
 			<Footer

@@ -1,47 +1,18 @@
-"use client";
+import { cn, constructMetadata } from "@/lib/utils";
+import { cookies as getCookies } from "next/headers";
+import { getUserFromSession } from "@/lib/buffer";
+import BaseLayout from "@/components/BaseLayout";
 
-import React, { Fragment, useEffect } from "react";
-
-import { ThemeProvider } from "@/providers/theme-provider";
-import { ToastProvider } from "@/providers/toast-provider";
-import { ModalProvider } from "@/providers/modal-provider";
-
-import { useStoreModal } from "@/hooks/use-store-modal";
-import { Animator } from "@/components/Contents";
-import { Layout } from "@/components/Layout";
-
-const SetupPage: React.FC<PageProps> = ({ children = null, modal }) => {
-	const onOpen = useStoreModal((state) => state.onOpen);
-	const isOpen = useStoreModal((state) => state.isOpen);
-
-	useEffect(() => {
-		// if (!isOpen) {
-		// 	onOpen();
-		// }
-	}, [isOpen, onOpen]);
-
-	// useEffect(() => {
-	// 	if (!isOpen) {
-	// 		onOpen();
-	// 	}
-	// }, []);
+const Layout: React.FC<PageProps> = ({ children = null, modal }) => {
+	const cookies = getCookies();
+	const session_id = cookies.get("session_id")?.value;
+	const session = getUserFromSession(session_id);
 
 	return (
-		<Fragment>
-			<ThemeProvider
-				attribute="class"
-				defaultTheme="system"
-				// defaultTheme="light"
-				enableSystem
-			>
-				<Animator>{modal}</Animator>
-
-				<ToastProvider />
-				<ModalProvider />
-				<Layout>{children}</Layout>
-			</ThemeProvider>
-		</Fragment>
+		<BaseLayout modal={modal} auth={session}>
+			{children}
+		</BaseLayout>
 	);
 };
 
-export default SetupPage;
+export default Layout;

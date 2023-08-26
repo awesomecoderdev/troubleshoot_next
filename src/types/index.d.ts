@@ -46,6 +46,7 @@ type HeadingProps = {
 interface PageProps {
 	children?: React.ReactNode | null;
 	modal?: React.ReactNode | null;
+	auth?: any;
 }
 
 interface AlertModalProps {
@@ -57,6 +58,7 @@ interface AlertModalProps {
 
 interface LayoutProps {
 	children?: React.ReactNode | null;
+	auth?: any;
 }
 
 type TopLevelNavItemProps = {

@@ -15,7 +15,7 @@ export function useIsInsideMobileNavigation() {
 	return useContext(IsInsideMobileNavigationContext);
 }
 
-export function MobileNavigation() {
+export function MobileNavigation({ ...props }) {
 	let isInsideMobileNavigation = useIsInsideMobileNavigation();
 	let { isOpen, toggle, close } = useMobileNavigationStore();
 	let ToggleIcon = isOpen ? XIcon : MenuIcon;

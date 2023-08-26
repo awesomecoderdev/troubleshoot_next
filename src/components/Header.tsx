@@ -85,10 +85,11 @@ function TopLevelNavItem({
 
 type HeaderProps = {
 	className?: string;
+	auth?: any;
 };
 
 export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
-	function Header({ className }, ref: Ref<HTMLHeadingElement>) {
+	function Header({ className, auth = null }, ref: Ref<HTMLHeadingElement>) {
 		const pathname = usePathname();
 		let { isOpen: mobileNavIsOpen } = useMobileNavigationStore();
 		let isInsideMobileNavigation = useIsInsideMobileNavigation();
@@ -142,7 +143,7 @@ export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
 					)}
 				>
 					<div className="flex items-center gap-3 lg:hidden">
-						<MobileNavigation />
+						<MobileNavigation auth={auth} />
 						<Link
 							href="/"
 							aria-label="Home"
@@ -169,7 +170,10 @@ export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
 							</Fragment>
 						)} */}
 						<Fragment>
-							<TopNavigationMenu className="hidden md:block" />
+							<TopNavigationMenu
+								auth={auth}
+								className="hidden md:block"
+							/>
 							{/* <div className="hidden md:block md:h-5 md:w-px md:bg-zinc-900/10 md:dark:bg-white/15" /> */}
 						</Fragment>
 
@@ -210,9 +214,9 @@ const components: { title: string; href: string; description: string }[] = [
 	},
 ];
 
-export function TopNavigationMenu({ ...props }) {
+export function TopNavigationMenu({ auth = null, ...props }) {
 	return (
-		<NavigationMenu {...props}>
+		<NavigationMenu {...props} auth={auth}>
 			<NavigationMenuList>
 				<NavigationMenuItem>
 					<TopLevelNavItem
@@ -257,12 +261,25 @@ export function TopNavigationMenu({ ...props }) {
 					</TopLevelNavItem>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
-					<TopLevelNavItem
-						className={navigationMenuTriggerStyle()}
-						href="/login"
-					>
-						Login
-					</TopLevelNavItem>
+					{!auth ? (
+						<Fragment>
+							<TopLevelNavItem
+								className={navigationMenuTriggerStyle()}
+								href="/login"
+							>
+								Login
+							</TopLevelNavItem>
+						</Fragment>
+					) : (
+						<Fragment>
+							<TopLevelNavItem
+								className={navigationMenuTriggerStyle()}
+								href="/dashboard"
+							>
+								Dashboard
+							</TopLevelNavItem>
+						</Fragment>
+					)}
 				</NavigationMenuItem>
 			</NavigationMenuList>
 		</NavigationMenu>

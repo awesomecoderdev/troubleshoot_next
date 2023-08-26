@@ -7,7 +7,8 @@ export const getUserFromSession = (token?: any) => {
 		try {
 			const session = JSON.parse(decode(`${token.split(".")[1]}`));
 			if (session?.email) {
-				return JSON.stringify(session);
+				// return JSON.stringify(session);
+				return session;
 			}
 		} catch (error) {
 			// unauthorized
