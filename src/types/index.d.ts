@@ -75,7 +75,6 @@ type GroupPathProps = {
 	pathname?: string;
 	group?: any;
 	className?: any;
-	error?: boolean;
 };
 
 type NavLinkProps = {
@@ -84,7 +83,6 @@ type NavLinkProps = {
 	children: React.ReactNode;
 	tag?: any;
 	active?: boolean;
-	error?: boolean;
 };
 
 type TopLevelNavItemProps = {

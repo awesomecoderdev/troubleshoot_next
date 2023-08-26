@@ -10,10 +10,12 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/components/Header";
 import { HeroPattern } from "@/components/HeroPattern";
 import { Footer } from "@/components/Footer";
+import useAuth from "@/hooks/use-auth";
 // import TagManager from "react-gtm-module";
 
 export function Layout({ children = null }: LayoutProps) {
 	const pathname = usePathname();
+	const { user } = useAuth();
 
 	// useEffect(() => {
 	// 	// google tag manager
@@ -24,12 +26,12 @@ export function Layout({ children = null }: LayoutProps) {
 
 	return (
 		<Fragment>
-			{/* <motion.header
+			<motion.header
 				layoutScroll
 				className={cn("relative z-40 contents px-6 pt-4 pb-8 ")}
 			>
 				<Header />
-			</motion.header> */}
+			</motion.header>
 			<Prose
 				as="main"
 				className={cn(
@@ -37,7 +39,7 @@ export function Layout({ children = null }: LayoutProps) {
 				)}
 			>
 				{pathname == "/" && <HeroPattern />}
-
+				<p>{JSON.stringify(user, null, 4)}</p>
 				<AnimatePresence initial={false}>{children}</AnimatePresence>
 			</Prose>
 			<Footer

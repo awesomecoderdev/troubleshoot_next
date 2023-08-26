@@ -1,7 +1,7 @@
-import axios from "./axios";
+import axios from "@/lib/axios";
 import { toast } from "sonner";
 import useSWR from "swr";
-
+import Cookies from "js-cookie";
 interface AuthUserContextType {
 	Provider: any;
 }
@@ -63,7 +63,7 @@ type Props = {
 // 	return null;
 // };
 
-export default function useNextAuth() {
+export default function useAuth() {
 	const {
 		data,
 		error,
@@ -75,7 +75,7 @@ export default function useNextAuth() {
 	} = useSWR(
 		"/auth/customer",
 		() =>
-			axios.post("/auth/customer").then((response) => response.data.info),
+			axios.get("/auth/customer").then((response) => response.data.info),
 		{
 			refreshInterval: 30000,
 			dedupingInterval: 30000,

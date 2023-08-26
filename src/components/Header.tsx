@@ -56,62 +56,39 @@ function TopLevelNavItem({
 	href,
 	children,
 	className,
-	error = false,
 	...props
 }: {
 	href: any;
 	children: React.ReactNode;
 	className?: string;
-	error?: boolean;
 }) {
 	const pathname = usePathname();
 	return (
 		<Fragment>
-			{error ? (
-				<a
-					href={href}
-					className={cn(
-						"relative px-2.5 py-2 text-sm font-medium leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white",
-						pathname == href && "text-zinc-900 dark:text-white",
-						className
-					)}
-					{...props}
-				>
-					{children}
-					{pathname == href && (
-						<span className="absolute transition inset-x-1 -bottom-3 h-px bg-gradient-to-r from-primary-500/0 via-primary-500/40 to-primary-500/0 dark:from-primary-400/0 dark:via-primary-400/40 dark:to-primary-400/0" />
-					)}
-				</a>
-			) : (
-				<Link
-					href={href}
-					className={cn(
-						"relative px-2.5 py-2 text-sm font-medium leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white",
-						pathname == href && "text-zinc-900 dark:text-white",
-						className
-					)}
-					{...props}
-				>
-					{children}
-					{pathname == href && (
-						<span className="absolute transition inset-x-1 -bottom-3 h-px bg-gradient-to-r from-primary-500/0 via-primary-500/40 to-primary-500/0 dark:from-primary-400/0 dark:via-primary-400/40 dark:to-primary-400/0" />
-					)}
-				</Link>
-			)}
+			<Link
+				href={href}
+				className={cn(
+					"relative px-2.5 py-2 text-sm font-medium leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white",
+					pathname == href && "text-zinc-900 dark:text-white",
+					className
+				)}
+				{...props}
+			>
+				{children}
+				{pathname == href && (
+					<span className="absolute transition inset-x-1 -bottom-3 h-px bg-gradient-to-r from-primary-500/0 via-primary-500/40 to-primary-500/0 dark:from-primary-400/0 dark:via-primary-400/40 dark:to-primary-400/0" />
+				)}
+			</Link>
 		</Fragment>
 	);
 }
 
 type HeaderProps = {
 	className?: string;
-	error?: boolean;
 };
 
 export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
-	function Header(
-		{ className, error = false },
-		ref: Ref<HTMLHeadingElement>
-	) {
+	function Header({ className }, ref: Ref<HTMLHeadingElement>) {
 		const pathname = usePathname();
 		let { isOpen: mobileNavIsOpen } = useMobileNavigationStore();
 		let isInsideMobileNavigation = useIsInsideMobileNavigation();
@@ -165,7 +142,7 @@ export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
 					)}
 				>
 					<div className="flex items-center gap-3 lg:hidden">
-						<MobileNavigation error={error} />
+						<MobileNavigation />
 						<Link
 							href="/"
 							aria-label="Home"
@@ -192,10 +169,7 @@ export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
 							</Fragment>
 						)} */}
 						<Fragment>
-							<TopNavigationMenu
-								error={error}
-								className="hidden md:block"
-							/>
+							<TopNavigationMenu className="hidden md:block" />
 							{/* <div className="hidden md:block md:h-5 md:w-px md:bg-zinc-900/10 md:dark:bg-white/15" /> */}
 						</Fragment>
 
@@ -278,7 +252,6 @@ export function TopNavigationMenu({ ...props }) {
 					<TopLevelNavItem
 						className={navigationMenuTriggerStyle()}
 						href="/contact"
-						error={props.error}
 					>
 						Contact
 					</TopLevelNavItem>
@@ -287,7 +260,6 @@ export function TopNavigationMenu({ ...props }) {
 					<TopLevelNavItem
 						className={navigationMenuTriggerStyle()}
 						href="/login"
-						error={props.error}
 					>
 						Login
 					</TopLevelNavItem>

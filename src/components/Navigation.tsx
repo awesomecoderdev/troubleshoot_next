@@ -63,52 +63,29 @@ function NavLink({
 	tag,
 	active,
 	isAnchorLink = false,
-	error = false,
 	children,
 }: NavLinkProps) {
 	return (
 		<Fragment>
-			{error ? (
-				<a
-					href={href}
-					aria-current={active ? "page" : undefined}
-					onClick={(e) => useMobileNavigationStore.getState().close()}
-					className={cn(
-						"flex justify-between gap-2 py-1 pr-3 text-sm transition",
-						isAnchorLink ? "pl-7" : "pl-2",
-						active
-							? "text-zinc-900 dark:text-white"
-							: "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-					)}
-				>
-					<span className="truncate">{children}</span>
-					{tag && (
-						<Tag variant="small" color="zinc">
-							{tag}
-						</Tag>
-					)}
-				</a>
-			) : (
-				<Link
-					href={href}
-					aria-current={active ? "page" : undefined}
-					onClick={(e) => useMobileNavigationStore.getState().close()}
-					className={cn(
-						"flex justify-between gap-2 py-1 pr-3 text-sm transition",
-						isAnchorLink ? "pl-7" : "pl-2",
-						active
-							? "text-zinc-900 dark:text-white"
-							: "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-					)}
-				>
-					<span className="truncate">{children}</span>
-					{tag && (
-						<Tag variant="small" color="zinc">
-							{tag}
-						</Tag>
-					)}
-				</Link>
-			)}
+			<Link
+				href={href}
+				aria-current={active ? "page" : undefined}
+				onClick={(e) => useMobileNavigationStore.getState().close()}
+				className={cn(
+					"flex justify-between gap-2 py-1 pr-3 text-sm transition",
+					isAnchorLink ? "pl-7" : "pl-2",
+					active
+						? "text-zinc-900 dark:text-white"
+						: "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+				)}
+			>
+				<span className="truncate">{children}</span>
+				{tag && (
+					<Tag variant="small" color="zinc">
+						{tag}
+					</Tag>
+				)}
+			</Link>
 		</Fragment>
 	);
 }
@@ -166,7 +143,7 @@ function ActivePageMarker({ group, pathname }: GroupPathProps) {
 		/>
 	);
 }
-function NavigationGroup({ group, className, error = false }: GroupPathProps) {
+function NavigationGroup({ group, className }: GroupPathProps) {
 	const pathname = usePathname();
 	const { hash } = useOrigin();
 
@@ -222,7 +199,6 @@ function NavigationGroup({ group, className, error = false }: GroupPathProps) {
 						>
 							<NavLink
 								href={link.href}
-								error={error}
 								active={
 									link.href === pathname ||
 									link.href == `${pathname}/${hash}`
@@ -332,13 +308,11 @@ type HeaderProps = {
 	className?: any;
 	cart?: any;
 	sensitive?: boolean;
-	error?: boolean;
 };
 
 export function Navigation({
 	auth = false,
 	cart = null,
-	error = false,
 	sensitive = false,
 	className,
 	...props
@@ -360,7 +334,7 @@ export function Navigation({
 					<NavigationGroup
 						key={group.title}
 						group={group}
-						error={error}
+
 						className={cn(
 							groupIndex === 0 && "md:mt-0"
 							// !auth && "hidden",
