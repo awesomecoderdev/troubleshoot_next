@@ -24,12 +24,9 @@ export function Layout({ children = null, auth = null }: LayoutProps) {
 
 	return (
 		<Fragment>
-			<motion.header
-				layoutScroll
-				className={cn("relative z-40 contents px-6 pt-4 pb-8 ")}
-			>
+			<header className={cn("relative z-40 contents px-6 pt-4 pb-8 ")}>
 				<Header auth={auth} />
-			</motion.header>
+			</header>
 			<Prose
 				as="main"
 				className={cn(

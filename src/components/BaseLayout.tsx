@@ -20,17 +20,13 @@ const BaseLayout: React.FC<PageProps> = ({
 	const isOpen = useStoreModal((state) => state.isOpen);
 	const { user } = useAuth();
 
-	// useEffect(() => {
-	// 	if (!isOpen) {
-	// 		onOpen();
-	// 	}
-	// }, [isOpen, onOpen]);
-
-	// useEffect(() => {
-	// 	if (!isOpen) {
-	// 		onOpen();
-	// 	}
-	// }, []);
+	useEffect(() => {
+		if (auth && !auth.phone_verify) {
+			if (!isOpen) {
+				onOpen();
+			}
+		}
+	}, [isOpen, onOpen]);
 
 	return (
 		<Fragment>

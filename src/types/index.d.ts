@@ -34,7 +34,7 @@ interface PreferredLanguageState {
 }
 
 type HeadingProps = {
-	level: any;
+	level: string | number;
 	children?: any;
 	id?: any;
 	tag?: any;

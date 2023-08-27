@@ -5,14 +5,17 @@ import React, {
 	Fragment,
 	HTMLAttributes,
 	PropsWithChildren,
+	ReactNode,
 } from "react";
 import { motion, MotionProps, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Pattern } from "@/components/Hero";
 import { textContainer, textVariant2 } from "@/utils/motion";
 
-interface ContentsProps extends MotionProps {
+// interface ContentsProps extends MotionProps {
+interface ContentsProps {
 	className?: string;
+	children?: ReactNode;
 }
 
 const Contents: React.FC<ContentsProps> = ({
@@ -23,7 +26,7 @@ const Contents: React.FC<ContentsProps> = ({
 	return (
 		<Fragment>
 			<Pattern />
-			<motion.div
+			{/* <motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{
@@ -38,7 +41,16 @@ const Contents: React.FC<ContentsProps> = ({
 				)}
 			>
 				{children}
-			</motion.div>
+			</motion.div> */}
+			<section
+				{...params}
+				className={cn(
+					"relative", // default class
+					className
+				)}
+			>
+				{children}
+			</section>
 		</Fragment>
 	);
 };

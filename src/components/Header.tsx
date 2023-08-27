@@ -214,9 +214,9 @@ const components: { title: string; href: string; description: string }[] = [
 	},
 ];
 
-export function TopNavigationMenu({ auth = null, ...props }) {
+export function TopNavigationMenu({ ...props }) {
 	return (
-		<NavigationMenu {...props} auth={auth}>
+		<NavigationMenu {...props}>
 			<NavigationMenuList>
 				<NavigationMenuItem>
 					<TopLevelNavItem
@@ -261,23 +261,25 @@ export function TopNavigationMenu({ auth = null, ...props }) {
 					</TopLevelNavItem>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
-					{!auth ? (
+					{!props?.auth ? (
 						<Fragment>
-							<TopLevelNavItem
-								className={navigationMenuTriggerStyle()}
+							<Button
+								variant="outline"
+								className="border-primary-400 ring-primary-400 rounded-md px-4 text-primary-600 hover:text-primary-700"
 								href="/login"
 							>
 								Login
-							</TopLevelNavItem>
+							</Button>
 						</Fragment>
 					) : (
 						<Fragment>
-							<TopLevelNavItem
-								className={navigationMenuTriggerStyle()}
-								href="/dashboard"
+							<Button
+								variant="outline"
+								className="border-primary-400 ring-primary-400 rounded-md px-4 text-primary-600 hover:text-primary-700"
+								href="/profile"
 							>
-								Dashboard
-							</TopLevelNavItem>
+								Profile
+							</Button>
 						</Fragment>
 					)}
 				</NavigationMenuItem>

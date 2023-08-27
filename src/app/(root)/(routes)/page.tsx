@@ -16,6 +16,7 @@ import {
 import { cn, truncate } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import axios from "@/lib/axios";
+import Hero from "@/components/Hero";
 
 export default function Home() {
 	const { onOpen } = useAlertModal();
@@ -40,16 +41,9 @@ export default function Home() {
 	// }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
-		<Contents>
-			<section className="flex min-h-screen flex-col items-center justify-between p-24">
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Possimus dignissimos, eaque, provident libero veritatis
-					aspernatur voluptates ducimus corporis quidem quis dolorem
-					aut officiis ea doloribus repellat cumque recusandae saepe
-					officia.
-				</p>
-			</section>
+		<Contents className="max-w-7xl mx-auto flex justify-center items-center">
+			{/* hero section */}
+			<Hero />
 		</Contents>
 	);
 }
