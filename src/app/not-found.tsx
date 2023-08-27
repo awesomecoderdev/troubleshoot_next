@@ -22,45 +22,38 @@ export default function NotFound() {
 			</head>
 			<body
 				className={cn(
-					"min-h-screen bg-background font-sans antialiased",
+					"min-h-screen font-sans antialiased",
 					inter.className
 				)}
 			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					// defaultTheme="light"
-					enableSystem
+				<header
+					className={cn("relative z-40 contents px-6 pt-4 pb-8 ")}
 				>
-					<header
-						className={cn("relative z-40 contents px-6 pt-4 pb-8 ")}
-					>
-						<Header error />
-					</header>
-					<Prose
-						as="main"
-						className={cn(
-							"relative min-h-[calc(100vh-75px)] pt-24 lg:px-8 sm:px-7 xs:px-5 px-4 xl:overflow-visible overflow-hidden flex items-center"
-						)}
-					>
-						<div className="relative h-full py-10">
-							<div className="feedback-gradient -z-10"></div>
-							<div className="mx-auto text-start">
-								<h1 className="mb-4 text-6xl tracking-tight font-extrabold lg:text-9xl">
-									404 :(
-								</h1>
-								<p className="mb-4 pt-4 capitalize text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
-									Something went wrong.
-								</p>
-								<p className="mb-4 lead">
-									This page could not be found.
-								</p>
-								<Button href="/">Go Back</Button>
-							</div>
+					<Header />
+				</header>
+				<Prose
+					as="main"
+					className={cn(
+						"relative min-h-[calc(100vh-75px)] pt-24 lg:px-8 sm:px-7 xs:px-5 px-4 xl:overflow-visible overflow-hidden flex items-center"
+					)}
+				>
+					<div className="relative h-full py-10">
+						<div className="feedback-gradient -z-10"></div>
+						<div className="mx-auto text-start">
+							<h1 className="mb-4 text-6xl tracking-tight font-extrabold lg:text-9xl">
+								404 :(
+							</h1>
+							<p className="mb-4 pt-4 capitalize text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
+								Something went wrong.
+							</p>
+							<p className="mb-4 lead">
+								This page could not be found.
+							</p>
+							<Button href="/">Go Back</Button>
 						</div>
-					</Prose>
-					<Footer className="py-6" />
-				</ThemeProvider>
+					</div>
+				</Prose>
+				<Footer className="py-6" />
 			</body>
 		</html>
 	);
