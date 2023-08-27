@@ -73,9 +73,8 @@ export default function useAuth() {
 		error: any;
 		mutate: any;
 	} = useSWR(
-		"/auth/customer",
-		() =>
-			axios.get("/auth/customer").then((response) => response.data.info),
+		"/csrf",
+		() => axios.get("/csrf").then((response) => response.data),
 		{
 			refreshInterval: 30000,
 			dedupingInterval: 30000,

@@ -10,12 +10,10 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/components/Header";
 import { HeroPattern } from "@/components/HeroPattern";
 import { Footer } from "@/components/Footer";
-import useAuth from "@/hooks/use-auth";
 // import TagManager from "react-gtm-module";
 
 export function Layout({ children = null, auth = null }: LayoutProps) {
 	const pathname = usePathname();
-	const { user } = useAuth();
 
 	// useEffect(() => {
 	// 	// google tag manager
@@ -39,8 +37,8 @@ export function Layout({ children = null, auth = null }: LayoutProps) {
 				)}
 			>
 				{pathname == "/" && <HeroPattern />}
-				<p>{JSON.stringify(auth, null, 4)}</p>
 				<AnimatePresence initial={false}>{children}</AnimatePresence>
+				<p> Hello {JSON.stringify(auth, null, 4)}</p>
 			</Prose>
 			<Footer
 				// className={cn("absolute w-full bottom-0")}
