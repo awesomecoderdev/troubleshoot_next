@@ -16,7 +16,8 @@ import {
 import { cn, truncate } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import axios from "@/lib/axios";
-import Hero from "@/components/Hero";
+import { Hero, Services } from "@/components/section";
+import { RecommendedServices } from "@/components/section/Services";
 
 export default function Home() {
 	const { onOpen } = useAlertModal();
@@ -41,9 +42,21 @@ export default function Home() {
 	// }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
-		<Contents className="max-w-7xl mx-auto flex justify-center items-center">
+		<Contents className="max-w-7xl mx-auto ">
 			{/* hero section */}
-			<Hero />
+			<Prose
+				enable={false}
+				className="relative w-full flex justify-center items-center"
+			>
+				<Hero />
+			</Prose>
+			{/* Services section */}
+			<Prose
+				enable={false}
+				className="relative max-w-5xl mx-auto w-full "
+			>
+				<RecommendedServices />
+			</Prose>
 		</Contents>
 	);
 }

@@ -123,3 +123,38 @@ interface Testimonial {
 	date: any;
 }
 type PutData = [any, any, any, any];
+
+interface ServiceResponse {
+	success: boolean;
+	status: number;
+	message: string;
+	data: Data;
+}
+interface ServiceData {
+	services: Service[];
+}
+
+interface Service {
+	id: number;
+	name: String;
+	subcategory_id: number;
+	category_id: number;
+	provider_id: number;
+	zone_id: number;
+	price: string;
+	type: "fixed" | "hourly";
+	duration: String;
+	image: string;
+	discount: number;
+	status: number;
+	short_description: string;
+	long_description: string;
+	tax: number;
+	order_count: number;
+	rating_count: number;
+	avg_rating: number;
+	is_featured: number;
+	by_admin: number;
+	created_at: Date;
+	updated_at: Date;
+}

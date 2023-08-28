@@ -12,6 +12,8 @@ const nextConfig = {
 			"lh3.googleusercontent.com",
 			"awesomecoder.dev",
 			"fakestoreapi.com",
+			"api.troubleshoot.co.bd",
+			"images.unsplash.com",
 		],
 	},
 	// poweredByHeader: false,
