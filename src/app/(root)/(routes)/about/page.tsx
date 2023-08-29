@@ -160,7 +160,7 @@ export default function About() {
 				<div className="relative w-full flex justify-center">
 					<Button
 						href="#"
-						className="bg-primary-500/90 hover:bg-primary-500 text-white rounded-lg px-4 py-3 w-full max-w-sm rounded-md"
+						className="bg-primary-500/90 hover:bg-primary-500 text-white xl:rounded-lg px-4 py-3 w-full max-w-sm rounded-md"
 						variant="filled"
 					>
 						Become a Seller
