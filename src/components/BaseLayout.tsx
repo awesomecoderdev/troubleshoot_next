@@ -30,7 +30,7 @@ const BaseLayout: React.FC<PageProps> = ({
 
 	return (
 		<Fragment>
-			<Animator>{modal}</Animator>
+			{/* <Animator>{modal}</Animator> */}
 
 			<ToastProvider />
 			<ModalProvider />

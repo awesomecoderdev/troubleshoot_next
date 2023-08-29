@@ -34,8 +34,8 @@ export function Layout({ children = null, auth = null }: LayoutProps) {
 				)}
 			>
 				{pathname == "/" && <HeroPattern />}
-				<AnimatePresence initial={false}>{children}</AnimatePresence>
-				<p> Hello {JSON.stringify(auth, null, 4)}</p>
+				{/* <AnimatePresence initial={false}>{children}</AnimatePresence> */}
+				{children}
 			</Prose>
 			<Footer
 				// className={cn("absolute w-full bottom-0")}

@@ -25,7 +25,7 @@ const Contents: React.FC<ContentsProps> = ({
 }) => {
 	return (
 		<Fragment>
-			<Pattern />
+			{/* <Pattern /> */}
 			{/* <motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
