@@ -248,6 +248,15 @@ export const getUrlFromString = (str: string) => {
 	}
 };
 
+export const url = (str: string) => {
+	try {
+		const parsedURL = process.env.API_ENDPOINT ?? "/";
+		return `${parsedURL}${str}`;
+	} catch (e) {
+		return null;
+	}
+};
+
 export const getDomainWithoutWWW = (url: string) => {
 	if (isValidUrl(url)) {
 		return new URL(url).hostname.replace(/^www\./, "");
