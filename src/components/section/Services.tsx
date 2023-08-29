@@ -19,7 +19,7 @@ export const Services: React.FC<ServicesProps> = ({ services }) => {
 	return (
 		<Fragment>
 			<div className="relative w-full grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-				{services.map((service, i) => (
+				{services?.map((service, i) => (
 					<Service
 						className={cn(
 							i > 7 && "xl:hidden",
@@ -52,7 +52,8 @@ export const Service: React.FC<ServiceProps> = ({ service, className }) => {
 				<div className="relative overflow-hidden h-44 bg-gray-50 flex items-center justify-center">
 					<BlurImage
 						// src="https://images.unsplash.com/photo-1692890846581-da1a95435f34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80"
-						src={heroImage}
+						// src={heroImage}
+						src={service.image}
 						alt=""
 						width={400}
 						height={200}
@@ -96,7 +97,7 @@ export const RecommendedServices = ({ zone = 1 }) => {
 				const request = await axios.get(
 					`/service/recommended?zone_id=${zone}`
 				);
-				const response: ServiceResponse = await request.data;
+				const response: AxiosResponse = await request.data;
 
 				if (response.status) {
 					const services = response.data.services;

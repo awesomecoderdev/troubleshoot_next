@@ -16,8 +16,10 @@ import {
 import { cn, truncate } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import axios from "@/lib/axios";
-import { Hero, Services } from "@/components/section";
+import { Categories, Hero, Services } from "@/components/section";
 import { RecommendedServices } from "@/components/section/Services";
+import { Heading } from "@/components/Heading";
+import { Button } from "@/components/Button";
 
 export default function Home() {
 	const { onOpen } = useAlertModal();
@@ -50,13 +52,35 @@ export default function Home() {
 			>
 				<Hero />
 			</Prose>
+			{/* Categories section */}
+			<div className="relative max-w-5xl mx-auto w-full space-y-8 py-8">
+				<Button
+					className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
+					variant="filled"
+				>
+					All Recommended
+				</Button>
+
+				<Prose
+					enable={false}
+					className="relative w-full overflow-scroll"
+				>
+					<Categories />
+				</Prose>
+			</div>
 			{/* Services section */}
-			<Prose
-				enable={false}
-				className="relative max-w-5xl mx-auto w-full "
-			>
-				<RecommendedServices />
-			</Prose>
+			<div className="relative max-w-5xl mx-auto w-full space-y-8 ">
+				<Button
+					className="font-semibold bg-primary-500/90 hover:bg-primary-500 text-white rounded-xl px-4 py-2"
+					variant="filled"
+				>
+					Recommended Services
+				</Button>
+
+				<Prose enable={false} className="relative w-full ">
+					<RecommendedServices />
+				</Prose>
+			</div>
 		</Contents>
 	);
 }

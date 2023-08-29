@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import Image, { ImageProps } from "next/image";
+import heroImage from "@/images/hero.png";
 import { useEffect, useState } from "react";
 interface BlurImageProps extends ImageProps {
 	noblur?: "true" | "false";
@@ -14,7 +15,7 @@ export default function BlurImage(props: BlurImageProps) {
 	return (
 		<Image
 			{...props}
-			src={src ?? `https://avatar.vercel.sh/${props.alt}`}
+			src={src ?? heroImage}
 			alt={props.alt}
 			className={cn(
 				props?.noblur == "true"
@@ -28,7 +29,7 @@ export default function BlurImage(props: BlurImageProps) {
 				setLoading(false);
 			}}
 			onError={() => {
-				setSrc(`https://avatar.vercel.sh/${props.alt}`); // if the image fails to load, use the default avatar
+				setSrc(heroImage); // if the image fails to load, use the default avatar
 			}}
 		/>
 	);

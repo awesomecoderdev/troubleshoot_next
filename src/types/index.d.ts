@@ -124,7 +124,7 @@ interface Testimonial {
 }
 type PutData = [any, any, any, any];
 
-interface ServiceResponse {
+interface AxiosResponse {
 	success: boolean;
 	status: number;
 	message: string;
@@ -157,4 +157,17 @@ interface Service {
 	by_admin: number;
 	created_at: Date;
 	updated_at: Date;
+}
+
+interface Category {
+	id: number;
+	parent_id: number;
+	name: string;
+	image: string;
+	position: number;
+	zone_id: number;
+	is_active: number;
+	is_featured: number;
+	created_at: any;
+	updated_at: any;
 }
