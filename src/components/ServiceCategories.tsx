@@ -18,7 +18,11 @@ export const ServiceCategories: React.FC<ServiceCategoriesProps> = ({
 	const [loading, setLoading] = useState<boolean>(true);
 	const [services, setServices] = useState<Service[]>([]);
 	const [cats, setCats] = useState<Category[]>(categoriesList[0] ?? []);
-	const [active, setActive] = useState<number>(cats[0]?.id ?? 0);
+	const [activeCategory, setActiveCategory] = useState<number>(
+		cats[0]?.id ?? 0
+	);
+	const [activeSubcategory, setActiveSubcategory] = useState<number>(0);
+	const [activeId, setActiveId] = useState<number>(0);
 
 	// useEffect(() => {
 	// 	const getCategories = async () => {
@@ -47,18 +51,77 @@ export const ServiceCategories: React.FC<ServiceCategoriesProps> = ({
 					<div
 						className={cn(
 							"relative flex items-center rounded-xl px-3 py-2 cursor-pointer",
-							active == category.id
+							activeCategory == category.id
 								? "bg-primary-100"
 								: "bg-primary-50/50 hover:bg-primary-50"
 						)}
-						onClick={(e) => setActive(category.id)}
+						onClick={(e) => {
+							setActiveCategory(category.id);
+							setActiveSubcategory(0);
+						}}
 					>
 						<span className="h-1.5 w-1.5 rounded-full mr-2.5 bg-primary-600"></span>
 						<p className="text-sm font-semibold">{category.name}</p>
-						{active == category.id && (
-							<ArrowIcon className="absolute right-4 h-3 w-3 text-primary-600" />
+						{(category.subcategories?.length ?? 0) != 0 && (
+							<div
+								className="h-full w-10 absolute right-0 top-0 flex items-center justify-center"
+								// @ts-ignore
+								onClick={(e) =>
+									setActiveId((prev) =>
+										prev == category.id ? 0 : category.id
+									)
+								}
+							>
+								<ArrowIcon
+									className={cn(
+										"h-3 w-3 text-primary-600",
+										activeId == category.id &&
+											"rotate-[360deg]"
+									)}
+								/>
+							</div>
 						)}
 					</div>
+
+					{(category.subcategories?.length ?? 0) != 0 && (
+						<Fragment>
+							<div
+								className={cn(
+									"relative pl-4 space-y-4",
+									activeId != category.id && "hidden"
+								)}
+							>
+								{category.subcategories?.map((subcategory) => (
+									<Fragment key={subcategory.id}>
+										<div
+											className={cn(
+												"relative flex items-center rounded-xl px-3 py-2 cursor-pointer",
+												activeSubcategory ==
+													subcategory.id &&
+													subcategory.parent_id ==
+														activeCategory
+													? "bg-primary-100"
+													: "bg-primary-50/50 hover:bg-primary-50"
+											)}
+											onClick={(e) => {
+												setActiveSubcategory(
+													subcategory.id
+												);
+												setActiveCategory(
+													subcategory.parent_id
+												);
+											}}
+										>
+											<span className="h-1.5 w-1.5 rounded-full mr-2.5 bg-primary-600"></span>
+											<p className="text-sm font-semibold">
+												{subcategory.name}
+											</p>
+										</div>
+									</Fragment>
+								))}
+							</div>
+						</Fragment>
+					)}
 				</Fragment>
 			))}
 		</Fragment>

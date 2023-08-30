@@ -12,7 +12,7 @@ import fetch from "@/lib/featch";
 
 const getCategories = async () => {
 	try {
-		const req = await fetch(`${url("/categories")}`);
+		const req = await fetch(`${url("/categories?subcategories=true")}`);
 
 		if (!req.ok) {
 			throw new Error("Failed to fetch data");

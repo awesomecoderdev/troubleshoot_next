@@ -168,4 +168,5 @@ interface Category {
 	zone_id: number;
 	is_active: number;
 	is_featured: number;
+	subcategories?: Category[];
 }
