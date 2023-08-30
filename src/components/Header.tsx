@@ -2,9 +2,6 @@
 
 import React, { Fragment, Ref, forwardRef, useState } from "react";
 import Link from "next/link";
-import { error } from "console";
-import { toast } from "sonner";
-import Image from "next/image";
 import {
 	MotionStyle,
 	MotionValue,
@@ -12,16 +9,6 @@ import {
 	useScroll,
 	useTransform,
 } from "framer-motion";
-
-import {
-	Disclosure,
-	Menu,
-	RadioGroup,
-	Switch,
-	Transition,
-} from "@headlessui/react";
-import portraitImage from "@/images/portrait.jpg";
-
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -38,15 +25,7 @@ import {
 	MobileNavigation,
 	useIsInsideMobileNavigation,
 } from "@/components/MobileNavigation";
-import BlurImage from "@/components/BlurImage";
-import {
-	ArrowUpOnSquareStackIcon,
-	Cog6ToothIcon,
-	UserCircleIcon,
-} from "@heroicons/react/24/outline";
-import { LoadingDots } from "@/components/animation/Loading";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "@/components/Theme";
 import { useMobileNavigationStore } from "@/hooks/use-mobile-navigation";
 import { Logo } from "@/components/Logo";
 import { fadeIn, slideIn, textVariant } from "@/utils/motion";
@@ -236,9 +215,7 @@ export function TopNavigationMenu({ ...props }) {
 									key={component.title}
 									title={component.title}
 									href={component.href}
-								>
-									{component.description}
-								</ListItem>
+								></ListItem>
 							))}
 						</ul>
 					</NavigationMenuContent>

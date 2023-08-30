@@ -10,17 +10,11 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/components/Header";
 import { HeroPattern } from "@/components/HeroPattern";
 import { Footer } from "@/components/Footer";
+import { Pattern } from "@/components/Hero";
 // import TagManager from "react-gtm-module";
 
 export function Layout({ children = null, auth = null }: LayoutProps) {
 	const pathname = usePathname();
-
-	// useEffect(() => {
-	// 	// google tag manager
-	// 	TagManager.initialize({
-	// 		gtmId: "GTM-K69DMNQ",
-	// 	});
-	// }, []);
 
 	return (
 		<Fragment>
@@ -33,8 +27,11 @@ export function Layout({ children = null, auth = null }: LayoutProps) {
 					"relative min-h-[calc(100vh-75px)] pt-24 lg:px-8 sm:px-7 xs:px-5 px-4 xl:overflow-visible overflow-hidden"
 				)}
 			>
-				{pathname == "/" && <HeroPattern />}
-				{/* <AnimatePresence initial={false}>{children}</AnimatePresence> */}
+				{pathname == "/" && (
+					<>
+						<HeroPattern /> <Pattern />
+					</>
+				)}
 				{children}
 			</Prose>
 			<Footer

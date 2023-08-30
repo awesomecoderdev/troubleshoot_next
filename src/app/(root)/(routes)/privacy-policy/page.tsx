@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
 				>
 					Privacy Policy
 				</Heading>
-				<Heading level={1} className="py-4">
+				<Heading level={2} className="py-4">
 					Last updated March 20, 2023
 				</Heading>
 

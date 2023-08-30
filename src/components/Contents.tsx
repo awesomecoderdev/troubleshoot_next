@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { cn } from "@/lib/utils";
 import { Pattern } from "@/components/Hero";
-import { MotionProps } from "framer-motion";
+import { AnimatePresence, MotionProps } from "framer-motion";
 
 interface ContentsProps {
 	className?: string;
@@ -23,7 +23,6 @@ const Contents: React.FC<ContentsProps> = ({
 }) => {
 	return (
 		<Fragment>
-			{/* <Pattern /> */}
 			<section
 				{...params}
 				className={cn(
@@ -68,3 +67,5 @@ export const Motion: React.FC<MotionComponentProps> = ({
 		</Component>
 	);
 };
+
+export const Animator = AnimatePresence;

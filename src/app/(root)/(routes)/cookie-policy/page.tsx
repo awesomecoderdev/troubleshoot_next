@@ -9,9 +9,9 @@ export default function CookiePolicy() {
 				<h1 className="scroll-mt-24 uppercase text-balance lg:text-3xl md:text-3xl text-2xl">
 					Cookie policy
 				</h1>
-				<h1 className="scroll-mt-24 py-4">
+				<h2 className="scroll-mt-24 py-4">
 					Last updated March 20, 2023
-				</h1>
+				</h2>
 
 				<div className="relative py-2 space-y-10">
 					<p className="lead text-balance">
