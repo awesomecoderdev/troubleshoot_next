@@ -76,7 +76,7 @@ export function Heading({
 	anchor = false,
 	...props
 }: HeadingProps) {
-	let Component: any = `h${parseInt(level)}`;
+	let Component: any = `h` + parseInt(`${level}`);
 	let ref = useRef<any>();
 	// let registerHeading = useSectionStore((s) => s.registerHeading);
 

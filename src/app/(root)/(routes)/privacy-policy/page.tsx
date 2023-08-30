@@ -1,37 +1,11 @@
 "use client";
 
-import React, { Fragment, ReactNode, useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { useAlertModal } from "@/hooks/use-alert-modal";
-import { Prose } from "@/components/Prose";
-import Contents, { Animator, Motion } from "@/components/Contents";
-import {
-	fadeIn,
-	navVariants,
-	skillsContainer,
-	slideIn,
-	textVariant,
-	textVariant2,
-} from "@/utils/motion";
-import { cn, truncate } from "@/lib/utils";
-import { useRouter } from "next/navigation";
-import axios from "@/lib/axios";
-import { Categories, Hero, Services } from "@/components/section";
-import { RecommendedServices } from "@/components/section/Services";
+import React, { Fragment, ReactNode } from "react";
+import Contents from "@/components/Contents";
 import { Heading } from "@/components/Heading";
-import { Button } from "@/components/Button";
-import BlurImage from "@/components/BlurImage";
-import aboutImage from "@/images/about.png";
-import { PencilIcon } from "lucide-react";
-import { PencilRuler } from "@/components/Icons";
-import {
-	ChatBubbleLeftEllipsisIcon,
-	ChatBubbleOvalLeftEllipsisIcon,
-	PuzzlePieceIcon,
-} from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-export default function About() {
+export default function PrivacyPolicy() {
 	return (
 		<Contents className="max-w-6xl mx-auto ">
 			<Heading level={1}>Privacy Policy</Heading>
@@ -193,7 +167,7 @@ export default function About() {
 						necessary to process your payment if you make purchases,
 						such as your payment instrument number, and the security
 						code associated with your payment instrument. All
-						payment data is stored bysslcommerz and bkash. You may
+						payment data is stored by sslcommerz and bkash. You may
 						find their privacy notice link(s) here:
 						<a
 							href="https://sslcommerz.com/privacy-policy/"
@@ -342,24 +316,3 @@ export default function About() {
 		</Contents>
 	);
 }
-
-interface CardProps {
-	title?: string;
-	icon?: any;
-	children?: ReactNode;
-}
-const Card: React.FC<CardProps> = ({ title, icon, children }) => {
-	return (
-		<Fragment>
-			<div className="relative bg-primary-50/50 xl:p-6 p-4 rounded-xl shadow cursor-pointer hover:shadow-md duration-300">
-				<div className="relative flex items-center gap-5">
-					<div className="bg-white rounded-full h-12 w-12 flex justify-center items-center shadow">
-						{icon}
-					</div>
-					<h2 className="font-semibold p-0 m-0">{title}</h2>
-				</div>
-				{children}
-			</div>
-		</Fragment>
-	);
-};

@@ -4,15 +4,7 @@ import React, { Fragment, ReactNode, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useAlertModal } from "@/hooks/use-alert-modal";
 import { Prose } from "@/components/Prose";
-import Contents, { Animator, Motion } from "@/components/Contents";
-import {
-	fadeIn,
-	navVariants,
-	skillsContainer,
-	slideIn,
-	textVariant,
-	textVariant2,
-} from "@/utils/motion";
+import Contents from "@/components/Contents";
 import { cn, truncate } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import axios from "@/lib/axios";

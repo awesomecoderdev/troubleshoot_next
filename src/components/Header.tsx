@@ -49,7 +49,6 @@ import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/Theme";
 import { useMobileNavigationStore } from "@/hooks/use-mobile-navigation";
 import { Logo } from "@/components/Logo";
-import { Motion, TypingText } from "@/components/Contents";
 import { fadeIn, slideIn, textVariant } from "@/utils/motion";
 
 function TopLevelNavItem({
@@ -328,11 +327,10 @@ interface SectionProps {
 export const Section: React.FC<SectionProps> = ({ title, intro, children }) => {
 	return (
 		<Fragment>
-			<Motion className="xl:mt-14 lg:mt-10 md:mt-7 text-balance">
+			<motion.div className="xl:mt-14 lg:mt-10 md:mt-7 text-balance">
 				<div className="max-w-4xl">
 					<div className="my-1 overflow-hidden">
-						<Motion
-							as="h1"
+						<motion.div
 							// initial={{ y: "120%", opacity: 0 }}
 							// whileInView={{ y: 0, opacity: 1 }}
 							// animate={{ y: 0, opacity: 1 }}
@@ -346,10 +344,9 @@ export const Section: React.FC<SectionProps> = ({ title, intro, children }) => {
 							className="lg:text-6xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 md:text-5xl text-4xl text-balance"
 						>
 							{title}
-						</Motion>
+						</motion.div>
 					</div>
-					<Motion
-						as="p"
+					<motion.div
 						variants={textVariant(0.5)}
 						initial="hidden"
 						whileInView="show"
@@ -357,9 +354,9 @@ export const Section: React.FC<SectionProps> = ({ title, intro, children }) => {
 						// viewport={{ once: true, amount: 0.25 }}
 					>
 						{intro}
-					</Motion>
+					</motion.div>
 				</div>
-			</Motion>
+			</motion.div>
 			{children}
 		</Fragment>
 	);

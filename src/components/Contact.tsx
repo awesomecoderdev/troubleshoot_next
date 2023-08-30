@@ -2,10 +2,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Properties, Property, Row, Col, Note } from "@/components/Note";
 import { Prose } from "@/components/Prose";
-import { fadeIn, slideIn, textVariant, textVariant2 } from "@/utils/motion";
 import { Button } from "@/components/Button";
 import { ArrowRightIcon } from "@/components/Icons";
-import { Motion } from "@/components/Contents";
 import { Mail, Phone } from "lucide-react";
 import { contactFormSchema } from "@/lib/validator";
 import * as z from "zod";

@@ -2,7 +2,7 @@
 import React from "react";
 import { Prose } from "@/components/Prose";
 import { skills as skillsList } from "@/lib/const";
-import Contents, { Animator, Motion } from "@/components/Contents";
+import Contents from "@/components/Contents";
 import { ArrowRightIcon } from "@/components/Icons";
 import { cn, truncate } from "@/lib/utils";
 import { Button } from "./Button";
