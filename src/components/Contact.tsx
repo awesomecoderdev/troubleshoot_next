@@ -4,7 +4,7 @@ import { Properties, Property, Row, Col, Note } from "@/components/Note";
 import { Prose } from "@/components/Prose";
 import { Button } from "@/components/Button";
 import { ArrowRightIcon } from "@/components/Icons";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, PhoneCall } from "lucide-react";
 import { contactFormSchema } from "@/lib/validator";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/form";
 import { LoadingCircle } from "@/components/animation/Loading";
 import axios from "@/lib/axios";
+import { Heading } from "./Heading";
+import Link from "next/link";
 
 const ContactUs = ({ featured = false }: { featured?: boolean }) => {
 	const [loading, setLoading] = useState<boolean>(false);
@@ -42,6 +44,9 @@ const ContactUs = ({ featured = false }: { featured?: boolean }) => {
 			data.append("subject", values.subject);
 			data.append("message", values.message);
 			data.append("type", "contact");
+
+			await new Promise((resolve) => setTimeout(resolve, 4000));
+
 			const request = await axios.post("/api/contact", values);
 			const response = await request.data;
 			if (response.success) {
@@ -65,8 +70,43 @@ const ContactUs = ({ featured = false }: { featured?: boolean }) => {
 	return (
 		<Fragment>
 			<Row className="relative lg:grid-cols-8 md:py-5 py-0 mt-5 pb-10">
-				<Col className="lg:col-span-3 ">""</Col>
-				<Col className="lg:col-span-5 md:py-5">
+				<Col className="lg:col-span-3 flex">
+					<div className="relative">
+						<Heading
+							level={1}
+							className="text-balance lg:text-5xl md:text-4xl text-3xl"
+						>
+							You can Contact us for an problem you have
+						</Heading>
+
+						<Heading level={1} className="py-8">
+							Ask us anything or just say hi...
+						</Heading>
+
+						<div className="relative space-y-4">
+							<Link
+								href="tel:+8809677889900"
+								className="flex items-center"
+							>
+								<Phone className="h-4 w-4 mr-2 text-primary-500" />
+								<span className="font-bold text-sm text-slate-900">
+									+8809677889900
+								</span>
+							</Link>
+
+							<Link
+								href="mailto:info@troubleshoot.com.bd"
+								className="flex items-center"
+							>
+								<Mail className="h-4 w-4 mr-2 text-primary-500" />
+								<span className="font-bold text-sm text-slate-900">
+									info@troubleshoot.com.bd
+								</span>
+							</Link>
+						</div>
+					</div>
+				</Col>
+				<Col className="lg:col-span-5 ">
 					<Prose enable={false}>
 						<Form {...form}>
 							<form
@@ -151,7 +191,7 @@ const ContactUs = ({ featured = false }: { featured?: boolean }) => {
 									disabled={loading}
 									type="submit"
 									arrow={!loading ? "right" : undefined}
-									className="py-2 px-5"
+									className="py-2 px-5 bg-primary-700/90 hover:bg-primary-700"
 								>
 									Send message
 									{loading && (

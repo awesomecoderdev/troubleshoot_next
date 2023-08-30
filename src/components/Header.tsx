@@ -165,30 +165,22 @@ export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
 	}
 );
 
-const components: { title: string; href: string; description: string }[] = [
+const components: { title: string; href: string }[] = [
 	{
-		title: "Languages",
-		href: "/skills",
-		description:
-			"Programming languages are a formalized set of instructions and rules used to communicate with a computer or computing device. ",
+		title: "Privacy Policy",
+		href: "/privacy-policy",
 	},
 	{
-		title: "UI / Library",
-		href: "/skills",
-		description:
-			"In programming, a library refers to a collection of pre-written codes that are available for reuse by multiple programs or applications.",
+		title: "Cookie policy",
+		href: "/cookie-policy",
 	},
 	{
-		title: "Frameworks",
-		href: "/skills",
-		description:
-			"Frameworks pre-established, structured platforms or environments that provide a foundation for developers to build software applications.",
+		title: "Terms And Conditions",
+		href: "/terms-and-conditions",
 	},
 	{
-		title: "Database / Server",
-		href: "/skills",
-		description:
-			"Databases are structured collection of data and information and A server refers to system that provides information over a network. ",
+		title: "Return Policy",
+		href: "/return-policy",
 	},
 ];
 
@@ -209,13 +201,13 @@ export function TopNavigationMenu({ ...props }) {
 						<TopLevelNavItem href="#">Pages</TopLevelNavItem>
 					</NavigationMenuTrigger>
 					<NavigationMenuContent>
-						<ul className="grid gap-3 p-4 w-[400px] md:w-[450px] lg:w-[480px] xl:w-[500px] md:grid-cols-2 ">
+						<ul className="grid grid-cols-1 w-[220px] py-2 bg-primary-50/50">
 							{components.map((component) => (
 								<ListItem
 									key={component.title}
 									title={component.title}
 									href={component.href}
-								></ListItem>
+								/>
 							))}
 						</ul>
 					</NavigationMenuContent>
@@ -278,7 +270,7 @@ const ListItem = React.forwardRef<
 					ref={ref}
 					href={`${href}`}
 					className={cn(
-						"block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors bg-slate-50/30 dark:bg-slate-900/10 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground shadow-sm",
+						"block select-none space-y-1 rounded-md px-4 py-3 leading-none text-sm font-extralight no-underline outline-none transition-colors hover:bg-primary-50",
 						className
 					)}
 					{...props}
