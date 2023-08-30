@@ -215,7 +215,7 @@ export function TopNavigationMenu({ ...props }) {
 				<NavigationMenuItem>
 					<TopLevelNavItem
 						className={navigationMenuTriggerStyle()}
-						href="/testimonials"
+						href="/services"
 					>
 						All Services
 					</TopLevelNavItem>

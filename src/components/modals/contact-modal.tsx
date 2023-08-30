@@ -9,10 +9,9 @@ import { useHydration } from "@/hooks/hydration";
 // import { Modal } from "@/components/ui/modal";
 import { Modal } from "@/components/Modal";
 import { Prose } from "@/components/Prose";
-import { Photos } from "@/components/Profile";
 import { fadeIn, slideIn, textVariant, textVariant2 } from "@/utils/motion";
 import { Button } from "@/components/Button";
-import { ArrowRightIcon, MailIcon, WhatsAppIcon } from "@/components/Icons";
+import { ArrowRightIcon } from "@/components/Icons";
 import { Motion } from "@/components/Contents";
 import { Mail, Phone } from "lucide-react";
 
@@ -133,7 +132,7 @@ const ContactModal: React.FC<PageProps> = ({ children }) => {
 										}
 									>
 										<div className="relative bg-teal-300/10 flex justify-center items-center h-10 w-10 rounded-full overflow-hidden ">
-											<WhatsAppIcon className="h-9 w-9 p-2 text-teal-400" />
+											<ArrowRightIcon className="h-9 w-9 p-2 text-teal-400" />
 										</div>
 										<span className="text-sm font-semibold text-gray-900 dark:text-white">{`+44 7724 870078`}</span>
 									</Motion>

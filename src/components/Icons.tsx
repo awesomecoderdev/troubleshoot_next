@@ -68,6 +68,29 @@ export function ArrowRightIcon({
 	);
 }
 
+export function ArrowIcon({ className, ...props }: { className?: string }) {
+	return (
+		<svg
+			className={cn(
+				"transition duration-200 rotate-180", //default
+				className
+			)}
+			{...props}
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			aria-hidden="true"
+		>
+			<polyline points="6 9 12 15 18 9"></polyline>
+		</svg>
+	);
+}
+
 export function CheckIcon({ className, ...props }: { className?: string }) {
 	return (
 		<svg

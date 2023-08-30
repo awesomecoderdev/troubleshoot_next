@@ -168,6 +168,4 @@ interface Category {
 	zone_id: number;
 	is_active: number;
 	is_featured: number;
-	created_at: any;
-	updated_at: any;
 }
