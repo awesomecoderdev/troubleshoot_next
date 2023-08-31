@@ -173,7 +173,7 @@ export const ServiceCategories: React.FC<ServiceCategoriesProps> = ({
 							{services?.map((service, i) => (
 								<Fragment key={service.id}>
 									<Link
-										href={"#"}
+										href={`/services/${service.id}`}
 										className={cn(
 											"relative bg-white h-auto cursor-pointer"
 										)}

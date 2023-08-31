@@ -5,7 +5,7 @@ export const metadata: Metadata = constructMetadata({
 	description: "One-stop Solution for your Services.",
 });
 
-export default function ServicesLayout({
+export default function ServiceLayout({
 	children,
 }: {
 	children: React.ReactNode;

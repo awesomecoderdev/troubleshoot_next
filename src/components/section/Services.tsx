@@ -43,7 +43,7 @@ export const Service: React.FC<ServiceProps> = ({ service, className }) => {
 	return (
 		<Fragment>
 			<Link
-				href="#"
+				href={`/services/${service.id}`}
 				className={cn(
 					"relative bg-white shadow-md rounded-lg h-auto overflow-hidden",
 					className
