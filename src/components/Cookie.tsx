@@ -11,7 +11,7 @@ const Cookie = () => {
 	useEffect(() => {
 		const cookie = Cookies.get("cookie");
 
-		if (cookie && cookie == "true") {
+		if (cookie) {
 			setAccepted(false);
 		} else {
 			setAccepted(true);
@@ -21,6 +21,11 @@ const Cookie = () => {
 	const acceptCookie = () => {
 		setAccepted(false);
 		Cookies.set("cookie", "true");
+	};
+
+	const declineCookie = () => {
+		setAccepted(false);
+		Cookies.set("cookie", "false");
 	};
 
 	return (
@@ -62,6 +67,7 @@ const Cookie = () => {
 										<Button
 											variant="outline"
 											className=" text-xs border text-gray-800 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 font-medium rounded-lg duration-300 transition-colors focus:outline-none"
+											onClick={declineCookie}
 										>
 											Decline
 										</Button>
