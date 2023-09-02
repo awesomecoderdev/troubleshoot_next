@@ -10,6 +10,7 @@ import { useStoreModal } from "@/hooks/use-store-modal";
 import { Animator } from "@/components/Contents";
 import { Layout } from "@/components/Layout";
 import useAuth from "@/hooks/use-auth";
+import Cookie from "@/components/Cookie";
 
 const BaseLayout: React.FC<PageProps> = ({
 	children = null,
@@ -30,11 +31,12 @@ const BaseLayout: React.FC<PageProps> = ({
 
 	return (
 		<Fragment>
-			{/* <Animator>{modal}</Animator> */}
+			<Animator>{modal}</Animator>
 
 			<ToastProvider />
 			<ModalProvider />
 			<Layout auth={auth}>{children}</Layout>
+			<Cookie />
 		</Fragment>
 	);
 };

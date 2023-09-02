@@ -11,7 +11,7 @@ export function Logo(props: any) {
 			<Image
 				src={logo}
 				alt={`${process.env.APP_NAME}`}
-				className="relative h-9 w-16"
+				className={cn("relative h-9 w-16", props.className)}
 				// @ts-ignore
 				width="auto"
 				// @ts-ignore

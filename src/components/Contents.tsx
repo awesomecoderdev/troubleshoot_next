@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { cn } from "@/lib/utils";
 import { Pattern } from "@/components/Hero";
-import { AnimatePresence, MotionProps } from "framer-motion";
+import { AnimatePresence, MotionProps, motion } from "framer-motion";
 
 interface ContentsProps {
 	className?: string;

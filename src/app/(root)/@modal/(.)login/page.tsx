@@ -1,10 +1,10 @@
+import LoginModal from "@/components/modals/login-modal";
 import React, { Fragment, useEffect } from "react";
-import ContactModal from "@/components/modals/contact-modal";
 
 const Contact = () => {
 	return (
 		<Fragment>
-			<ContactModal />
+			<LoginModal />
 		</Fragment>
 	);
 };

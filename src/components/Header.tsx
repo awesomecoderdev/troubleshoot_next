@@ -130,13 +130,13 @@ export const Header = forwardRef<HTMLHeadingElement, HeaderProps>(
 							}
 							className="relative block"
 						>
-							<Logo className="h-6" />
+							<Logo className="h-9" />
 						</Link>
 					</div>
 
 					<div className="hidden lg:flex">
 						<Link href="/" aria-label="Home">
-							<Logo className="h-6" />
+							<Logo className="h-9" />
 						</Link>
 					</div>
 
