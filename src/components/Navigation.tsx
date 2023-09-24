@@ -373,9 +373,6 @@ export function Navigation({
 					<TopLevelNavItem href="/services">
 						All Services
 					</TopLevelNavItem>
-					<TopLevelNavItem href="/testimonials">
-						Testimonials
-					</TopLevelNavItem>
 					<TopLevelNavItem href="/contact">Contact</TopLevelNavItem>
 				</Fragment>
 
