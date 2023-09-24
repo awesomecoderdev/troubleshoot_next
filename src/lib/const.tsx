@@ -18,9 +18,9 @@ import {
 } from "lucide-react";
 import BlurImage from "@/components/BlurImage";
 
-export const twitter = "https://twitter.com/@awesomecoderdev";
+export const twitter = "#";
 export const github = "https://github.com/awesomecoderdev";
-export const facebook = "https://facebook.com/awesomecoderdev";
+export const facebook = "https://www.facebook.com/troubleshoot.com.bd";
 export const discord = "https://discordapp.com/users/1006478863385231400";
 export const linkedin = "https://linkdin.com/awesomecoderdev";
 export const instagram = "https://www.instagram.com/awesomecoderdev";
