@@ -19,10 +19,10 @@ const nextConfig = {
 	},
 	// poweredByHeader: false,
 	reactStrictMode: true,
-	experimental: {
-		scrollRestoration: true,
-		serverActions: true,
-	},
+	// experimental: {
+	// 	scrollRestoration: true,
+	// 	serverActions: true,
+	// },
 	// async headers() {
 	// 	return [
 	// 		{
