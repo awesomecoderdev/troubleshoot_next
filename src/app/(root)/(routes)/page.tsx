@@ -55,7 +55,7 @@ export default function Home() {
 
 				<Prose
 					enable={false}
-					className="relative w-full overflow-scroll"
+					className="relative w-full overflow-hidden"
 				>
 					<Categories />
 				</Prose>

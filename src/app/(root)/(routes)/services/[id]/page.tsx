@@ -71,7 +71,7 @@ export default async function Service({ params, searchParams }: Props) {
 
 	return (
 		<Contents className="max-w-6xl mx-auto ">
-			<p>{JSON.stringify(service, null, 4)}</p>
+			{/* <p>{JSON.stringify(service, null, 4)}</p> */}
 
 			<Row className="relative md:py-5 py-0 mt-5 pb-10">
 				<Col className="relative">

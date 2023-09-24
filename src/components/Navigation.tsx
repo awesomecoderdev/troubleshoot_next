@@ -50,7 +50,7 @@ function TopLevelNavItem({ href, children }: TopLevelNavItemProps) {
 			<Link
 				href={href}
 				onClick={(e) => useMobileNavigationStore.getState().close()}
-				className="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+				className="block font-semibold py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
 			>
 				{children}
 			</Link>
@@ -310,6 +310,25 @@ type HeaderProps = {
 	sensitive?: boolean;
 };
 
+const components: { title: string; href: string }[] = [
+	{
+		title: "Privacy Policy",
+		href: "/privacy-policy",
+	},
+	{
+		title: "Cookie policy",
+		href: "/cookie-policy",
+	},
+	{
+		title: "Terms And Conditions",
+		href: "/terms-and-conditions",
+	},
+	{
+		title: "Return Policy",
+		href: "/return-policy",
+	},
+];
+
 export function Navigation({
 	auth = false,
 	cart = null,
@@ -320,21 +339,50 @@ export function Navigation({
 	return (
 		<nav className={cn(className)}>
 			<ul role="list">
-				{/* <Fragment>
+				<Fragment>
 					<TopLevelNavItem href="/about">About</TopLevelNavItem>
-					<TopLevelNavItem href="/skills">Skills</TopLevelNavItem>
-					<TopLevelNavItem href="/projects">Projects</TopLevelNavItem>
+					<li className={cn("relative", className)}>
+						<motion.h2
+							layout="position"
+							// className="text-xs font-semibold text-zinc-900 dark:text-white"
+							className="block py-1 font-semibold text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+						>
+							Pages
+						</motion.h2>
+						<div className="relative mt-3 pl-2">
+							<motion.div
+								layout
+								className="absolute inset-y-0 left-2 w-px bg-zinc-900/10 dark:bg-white/5"
+							/>
+							<ul
+								role="list"
+								className="border-l border-transparent"
+							>
+								{components.map((link, index) => (
+									<Fragment key={index}>
+										<NavLink href={link.href}>
+											<span className="flex items-center">
+												{link.title}
+											</span>
+										</NavLink>
+									</Fragment>
+								))}
+							</ul>
+						</div>
+					</li>
+					<TopLevelNavItem href="/services">
+						All Services
+					</TopLevelNavItem>
 					<TopLevelNavItem href="/testimonials">
 						Testimonials
 					</TopLevelNavItem>
 					<TopLevelNavItem href="/contact">Contact</TopLevelNavItem>
-				</Fragment> */}
+				</Fragment>
 
 				{/* {navigations.map((group, groupIndex) => (
 					<NavigationGroup
 						key={group.title}
 						group={group}
-
 						className={cn(
 							groupIndex === 0 && "md:mt-0"
 							// !auth && "hidden",
@@ -343,7 +391,7 @@ export function Navigation({
 					/>
 				))} */}
 
-				<li
+				{/* <li
 					className={cn(
 						// "sticky bottom-0 z-10 mt-6 min-[416px]:hidden",
 						"sticky bottom-0 z-10 mt-6 md:hidden"
@@ -352,7 +400,7 @@ export function Navigation({
 					<Button variant="filled" className="w-full" href="/cv.pdf">
 						Download CV
 					</Button>
-				</li>
+				</li> */}
 			</ul>
 		</nav>
 	);

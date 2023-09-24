@@ -96,7 +96,7 @@ export const Categories = () => {
 						</Fragment>
 					) : (
 						<Fragment>
-							{categories?.map((category, i) => (
+							{categories?.map((category, index) => (
 								<Fragment key={category.id}>
 									<Category
 										// className={cn(
@@ -105,7 +105,9 @@ export const Categories = () => {
 										// )}
 										category={category}
 									/>
-									<span className="h-5 w-0.5 bg-primary-500"></span>
+									{index != categories.length - 1 && (
+										<span className="h-5 w-0.5 bg-primary-500"></span>
+									)}
 								</Fragment>
 							))}
 						</Fragment>

@@ -14,6 +14,7 @@ const nextConfig = {
 			"fakestoreapi.com",
 			"api.troubleshoot.co.bd",
 			"images.unsplash.com",
+			"troubleshootprovider.asthaall.com",
 		],
 	},
 	// poweredByHeader: false,
